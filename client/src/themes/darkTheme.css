@@ -1,0 +1,18 @@
+body.dark {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark .navbar {
+  background: #2c2c2c;
+  border-bottom: 1px solid #444;
+}
+
+body.dark .product-card, body.dark .user-card {
+  background: #2c2c2c;
+  border: 1px solid #444;
+}
+
+body.dark .error {
+  color: #ff6655;
+}

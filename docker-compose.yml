@@ -1,17 +1,5 @@
 version: '3.8'
 services:
-  mongodb:
-    image: mongo:6.0
-    ports:
-      - '27017:27017'
-    volumes:
-      - mongodb_data:/data/db
-    environment:
-      - MONGO_INITDB_DATABASE=marketplace
-  redis:
-    image: redis:7.0
-    ports:
-      - '6379:6379'
   server:
     build:
       context: ./server
@@ -19,14 +7,13 @@ services:
     ports:
       - '5000:5000'
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/marketplace
+      - MONGO_URI=mongodb+srv://marketplace_user:marketplace_password@marketplace-cluster.mongodb.net/marketplace?retryWrites=true&w=majority
       - REDIS_URL=redis://redis:6379
       - PORT=5000
       - JWT_SECRET=your_jwt_secret
       - EMAIL_USER=your_email@gmail.com
       - EMAIL_PASS=your_email_password
     depends_on:
-      - mongodb
       - redis
     volumes:
       - ./server:/app
@@ -43,5 +30,7 @@ services:
     volumes:
       - ./client:/app
       - /app/node_modules
-volumes:
-  mongodb_data:
+  redis:
+    image: redis:7.0
+    ports:
+      - '6379:6379'

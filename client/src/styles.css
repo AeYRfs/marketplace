@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+.navbar select, .navbar button {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+
+.notifications {
+  position: relative;
+}
+
+.notifications ul {
+  position: absolute;
+  padding: 10px;
+  list-style: none;
+  z-index: 1000;
+}
+
+.notifications .unread {
+  font-weight: bold;
+}
+
+/* ... (остальные стили без изменений) */
